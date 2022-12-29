@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app1/typography/text_styles.dart';
+import 'package:test_app1/design_system/typography/text_styles.dart';
 
 import 'main_info_block_row.dart';
 

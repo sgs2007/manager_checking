@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../colors/colors.dart';
+import '../../../design_system/colors/colors.dart';
 import 'server_column.dart';
 
 class MainInfoContainer extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../colors/colors.dart';
+import '../../../design_system/colors/colors.dart';
 import 'categories_listview.dart';
 
 class MainScreen extends StatelessWidget {

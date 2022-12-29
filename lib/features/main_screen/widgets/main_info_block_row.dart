@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../typography/text_styles.dart';
+import '../../../design_system/typography/text_styles.dart';
 
 enum ServerType {
   workingServer(color: Colors.green),

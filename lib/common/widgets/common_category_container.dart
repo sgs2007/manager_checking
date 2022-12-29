@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../colors/colors.dart';
-import '../../typography/text_styles.dart';
+import '../../design_system/colors/colors.dart';
+import '../../design_system/typography/text_styles.dart';
 
 class CommonCategoryContainer extends StatelessWidget {
   const CommonCategoryContainer({
