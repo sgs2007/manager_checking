@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../colors/colors.dart';
 import 'server_column.dart';
 
 class MainInfoContainer extends StatelessWidget {
@@ -13,12 +14,12 @@ class MainInfoContainer extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         width: double.infinity,
-        height: 200,
+        height: 220,
         padding: const EdgeInsets.all(
           16.0,
         ),
         decoration: BoxDecoration(
-          color: const Color(0xFF8CBBF0),
+          color: mainContainerColor,
           borderRadius: const BorderRadius.all(
             Radius.circular(16),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../colors/colors.dart';
 import 'categories_listview.dart';
 
 class MainScreen extends StatelessWidget {
@@ -8,9 +9,9 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        // backgroundColor: Colors.black,
+        backgroundColor: mainBackgroundColor,
         body: SafeArea(
-      child: CategoriesListView(),
-    ));
+          child: CategoriesListView(),
+        ));
   }
 }

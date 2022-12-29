@@ -27,7 +27,8 @@ class CategoriesListView extends StatelessWidget {
             ),
             onPressed: () {},
             child: CommonCategoryContainer(
-              text: item,
+              text: item.name,
+              icon: item.icon,
             ),
           ),
         )

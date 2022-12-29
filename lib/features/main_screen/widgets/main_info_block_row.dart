@@ -34,7 +34,8 @@ class MainInfoBlocRow extends StatelessWidget {
             Text(
               title,
               style: baseStyle.copyWith(
-                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
             ),
             if (colorMarker != null) ...[
