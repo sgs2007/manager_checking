@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app1/design_system/indent/indent.dart';
 
 import '../../design_system/colors/colors.dart';
 import '../../design_system/typography/text_styles.dart';
@@ -21,7 +22,7 @@ class CommonCategoryContainer extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(
-              16.0,
+              Indent.i2,
             ),
             decoration: const BoxDecoration(
               color: mainButtonColor,
@@ -34,7 +35,7 @@ class CommonCategoryContainer extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            width: 24,
+            width: Indent.i3,
           ),
           Text(
             text,

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../../design_system/colors/colors.dart';
 import 'manager_flexible_space_bar.dart';
 import 'sliver_action_container.dart';
 import 'sliver_title.dart';
+
+const expandedHeight = 200.0;
+const toolBarHeight = 130.0;
 
 class ManagerMainScreen extends StatelessWidget {
   const ManagerMainScreen({super.key});
@@ -10,22 +14,24 @@ class ManagerMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color(0xFF48416C),
+      backgroundColor: defaultBackgroundColor,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: Color(0xFF48416C),
+            backgroundColor: defaultBackgroundColor,
             pinned: true,
             floating: true,
             automaticallyImplyLeading: false,
-            toolbarHeight: 130,
-            expandedHeight: 200,
+            toolbarHeight: toolBarHeight,
+            expandedHeight: expandedHeight,
             centerTitle: false,
             title: SliverTitle(),
             actions: [
               SliverActionContainer(),
             ],
-            flexibleSpace: ManagerFlexibleSpaceBar(),
+            flexibleSpace: ManagerFlexibleSpaceBar(
+              animationPoint: expandedHeight,
+            ),
           ),
         ],
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../design_system/indent/indent.dart';
+import '../../../design_system/typography/text_styles.dart';
 import 'decorated_action_container.dart';
 
 class ExtraActionRow extends StatelessWidget {
@@ -23,15 +25,12 @@ class ExtraActionRow extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-            fontSize: 16,
-            color: Color(0xFFF8D3C7),
-          ),
+          style: TypographyProject.defaultTextStyle,
         ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
+              horizontal: Indent.i2,
             ),
             child: Container(
               height: 1,
@@ -52,13 +51,10 @@ class ExtraActionRow extends StatelessWidget {
             children: [
               Text(
                 subTitle,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Color(0xFFF8D3C7),
-                ),
+                style: TypographyProject.defaultSmallTextStyle,
               ),
               const SizedBox(
-                width: 8.0,
+                width: Indent.i1,
               ),
               IconButton(
                 padding: EdgeInsets.zero,

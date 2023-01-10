@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:test_app1/design_system/indent/indent.dart';
 
 import 'extra_action_row.dart';
 
 class ManagerFlexibleSpaceBar extends StatelessWidget {
   const ManagerFlexibleSpaceBar({
     super.key,
+    required this.animationPoint,
   });
+
+  final double animationPoint;
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +20,11 @@ class ManagerFlexibleSpaceBar extends StatelessWidget {
         titlePadding: EdgeInsets.zero,
         centerTitle: false,
         title: AnimatedOpacity(
-          opacity: top > 200 ? 1.0 : 0.0,
+          opacity: top > animationPoint ? 1.0 : 0.0,
           duration: const Duration(milliseconds: 150),
           child: Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
+              horizontal: Indent.i2,
             ),
             child: SizedBox(
               height: 100,
@@ -28,7 +32,7 @@ class ManagerFlexibleSpaceBar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   SizedBox(
-                    height: 24.0,
+                    height: Indent.i3,
                   ),
                   ExtraActionRow(
                     title: 'Tasks',
@@ -38,7 +42,7 @@ class ManagerFlexibleSpaceBar extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 8,
+                    height: Indent.i1,
                   ),
                   ExtraActionRow(
                     title: 'Work timer',
