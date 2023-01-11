@@ -20,11 +20,12 @@ class ManagerFlexibleSpaceBar extends StatelessWidget {
         titlePadding: EdgeInsets.zero,
         centerTitle: false,
         title: AnimatedOpacity(
-          opacity: top > animationPoint ? 1.0 : 0.0,
-          duration: const Duration(milliseconds: 150),
+          opacity: top > (animationPoint) ? 1.0 : 0.0,
+          duration: const Duration(microseconds: 600),
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: Indent.i2,
+              vertical: Indent.i2,
             ),
             child: SizedBox(
               height: 100,
