@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:test_app1/design_system/indent/indent.dart';
 
 import '../../../design_system/colors/colors.dart';
-import 'category_list_item.dart';
+import 'category_sliver_grid.dart';
 import 'manager_sliver_app_bar.dart';
+import 'sliver_banners.dart';
 
 const expandedHeight = 204.0;
 const toolBarHeight = 134.0;
@@ -45,24 +46,13 @@ class _ManagerMainScreenState extends State<ManagerMainScreen> {
               height: Indent.i2,
             ),
           ),
-          SliverGrid(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) => Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: Indent.i1,
-                ),
-                child: CategoryListItem(
-                  title: 'Category number ${index.toString()}',
-                ),
-              ),
-              childCount: 20,
-            ),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              mainAxisSpacing: Indent.getIndent(1.25),
-              mainAxisExtent: 60.0,
+          const SliverBanners(),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: Indent.i2,
             ),
           ),
+          const CategorySliverGrid(),
         ],
       ),
     );

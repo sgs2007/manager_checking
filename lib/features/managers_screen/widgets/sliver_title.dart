@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../common/constants/constants_project.dart';
+import '../../../design_system/typography/text_styles.dart';
 import 'manager_main_screen.dart';
 
 class SliverTitle extends StatefulWidget {
@@ -23,7 +25,7 @@ class _SliverTitleState extends State<SliverTitle> with TickerProviderStateMixin
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(
-        milliseconds: 500,
+        milliseconds: mainDurationAnimationTime,
       ),
     );
     _animation = CurvedAnimation(parent: _animationController, curve: Curves.fastOutSlowIn);
@@ -52,20 +54,13 @@ class _SliverTitleState extends State<SliverTitle> with TickerProviderStateMixin
           children: [
             const Text(
               'Serhii Heorhiiev',
-              style: TextStyle(
-                fontSize: 16,
-                color: Color(0xFFF8D3C7),
-              ),
+              style: TypographyProject.defaultTextStyle,
             ),
             ScaleTransition(
               scale: _animation,
               child: const Text(
                 'Developer',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFF8D3C7),
-                ),
+                style: TypographyProject.defaultLargeTextStyle,
               ),
             ),
           ],

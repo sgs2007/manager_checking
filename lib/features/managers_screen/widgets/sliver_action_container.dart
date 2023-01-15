@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:test_app1/design_system/indent/indent.dart';
 
+import '../../../common/constants/constants_project.dart';
 import '../../../design_system/colors/gradients.dart';
 import 'manager_main_screen.dart';
 import 'sliver_action_button.dart';
 import 'sliver_action_button_with_badge.dart';
+
+const _animatedContainerWIdth = 127.0;
 
 class SliverActionContainer extends StatefulWidget {
   const SliverActionContainer({
@@ -22,6 +25,7 @@ class _SliverActionContainerState extends State<SliverActionContainer> with Sing
   bool isExpanded = false;
   late AnimationController animationController;
   late Animation<double> animation;
+  late Animation<double> animationForScaleButton;
 
   @override
   void initState() {
@@ -30,12 +34,16 @@ class _SliverActionContainerState extends State<SliverActionContainer> with Sing
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(
-        milliseconds: 500,
+        milliseconds: mainDurationAnimationTime,
       ),
     );
     animation = CurvedAnimation(
       parent: animationController,
       curve: Curves.easeIn,
+    );
+    animationForScaleButton = CurvedAnimation(
+      parent: animationController,
+      curve: Curves.fastOutSlowIn,
     );
   }
 
@@ -61,14 +69,16 @@ class _SliverActionContainerState extends State<SliverActionContainer> with Sing
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        right: 16,
-        bottom: 16,
+        right: Indent.i2,
+        bottom: Indent.i2,
       ),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 500),
+        duration: const Duration(
+          milliseconds: mainDurationAnimationTime,
+        ),
         curve: Curves.fastOutSlowIn,
         padding: const EdgeInsets.all(Indent.i1),
-        width: 127,
+        width: _animatedContainerWIdth,
         decoration: BoxDecoration(
           border: isExpanded ? Border.all(color: Colors.black) : null,
           borderRadius: isExpanded
@@ -91,11 +101,14 @@ class _SliverActionContainerState extends State<SliverActionContainer> with Sing
               ),
             ),
             if (isExpanded)
-              SLiverActionButton(
-                icon: const Icon(
-                  Icons.settings,
+              ScaleTransition(
+                scale: animationForScaleButton,
+                child: SLiverActionButton(
+                  icon: const Icon(
+                    Icons.settings,
+                  ),
+                  onPressed: _handleSettingsButtonPressed(),
                 ),
-                onPressed: () {},
               )
             else
               SliverActionButtonWithBadge(
@@ -108,5 +121,40 @@ class _SliverActionContainerState extends State<SliverActionContainer> with Sing
         ),
       ),
     );
+  }
+
+  VoidCallback _handleSettingsButtonPressed() {
+    return () => showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          // shape: const RoundedRectangleBorder(
+          //   borderRadius: BorderRadius.vertical(
+          //     top: Radius.circular(24),
+          //   ),
+          // ),
+          builder: (context) => DraggableScrollableSheet(
+            maxChildSize: 0.9,
+            initialChildSize: 0.8,
+            minChildSize: 0.5,
+            builder: (context, scrollController) => Material(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(24),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Indent.i2,
+                  vertical: Indent.i2,
+                ),
+                child: ListView(
+                  controller: scrollController,
+                  children: [
+                    Text('Teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeest'),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app1/design_system/indent/indent.dart';
 
+import '../../../common/constants/constants_project.dart';
 import 'extra_action_row.dart';
 
 class ManagerFlexibleSpaceBar extends StatelessWidget {
@@ -21,7 +22,9 @@ class ManagerFlexibleSpaceBar extends StatelessWidget {
         centerTitle: false,
         title: AnimatedOpacity(
           opacity: top > (animationPoint) ? 1.0 : 0.0,
-          duration: const Duration(microseconds: 600),
+          duration: const Duration(
+            microseconds: mainDurationAnimationTime,
+          ),
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: Indent.i2,
